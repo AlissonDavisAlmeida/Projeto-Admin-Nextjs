@@ -16,7 +16,7 @@ function MenuLateral() {
             </ul>
             <ul>
                 <MenuItem onClick={()=> console.log("logout")} texto="Sair" icone={Logout} className={`text-red-600 
-                hover:text-white hover:bg-red-400 hover:animate-bounce dark:hover:bg-red-500`}/>
+                hover:text-white hover:bg-blue-400 hover:animate-bounce dark:hover:bg-red-500`}/>
             </ul> 
         </aside>
      );
