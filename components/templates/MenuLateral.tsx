@@ -1,8 +1,10 @@
+import useAuth from "../../data/hook/authAppData";
 import { Bell, Home, Settings, Logout } from "../icons";
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
 
 function MenuLateral() {
+    const {logout} = useAuth()
     return ( 
         <aside className="flex flex-col dark:bg-gray-900 dark:text-white">
             <div className={`h-20 w-full bg-gradient-to-r  from-indigo-400 to-purple-700 flex flex-col items-center justify-center
@@ -15,7 +17,7 @@ function MenuLateral() {
                 <MenuItem icone={Bell} url="/notificacoes" texto="Notificações" className="hover:scale-110"/>
             </ul>
             <ul>
-                <MenuItem onClick={()=> console.log("logout")} texto="Sair" icone={Logout} className={`text-red-600 
+                <MenuItem onClick={ logout} texto="Sair" icone={Logout} className={`text-red-600 
                 hover:text-white hover:bg-blue-400 hover:animate-bounce dark:hover:bg-red-500`}/>
             </ul> 
         </aside>

@@ -1,4 +1,5 @@
 import UseAppData from "../../data/hook/useAppData";
+import ForceAutenticacao from "../auth/ForceAutenticacao";
 import Cabecalho from "./Cabecalho";
 import Conteudo from "./Conteudo";
 import MenuLateral from "./MenuLateral"
@@ -14,6 +15,8 @@ function Layout(props :LayoutProps) {
 
     const {tema, alternarTema} = UseAppData()
     return (
+        <ForceAutenticacao>
+
         <div className={`flex h-screen w-screen ${tema}`}>
             
             <MenuLateral/>
@@ -23,6 +26,7 @@ function Layout(props :LayoutProps) {
 
             </div>
         </div>
+        </ForceAutenticacao>
       );
 }
 

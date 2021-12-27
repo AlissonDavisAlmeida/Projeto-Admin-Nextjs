@@ -6,13 +6,13 @@ import useAuth from "../data/hook/authAppData";
 
 function Autenticacao() {
 
-    const { usuario, loginGoogle } = useAuth()
+    const { cadastrarUsuario,loginEmail, loginGoogle } = useAuth()
 
     const [email, setemail] = useState("");
     const [senha, setsenha] = useState("");
     const [modo, setmodo] = useState<"login" | "cadastro">("login");
     const [erro, seterro] = useState(false);
-
+  
     const exibirErro = (msg, tempo = 5000)=>{
         seterro(true)
         
@@ -21,11 +21,17 @@ function Autenticacao() {
         }, tempo);
     }
 
-    const submit = () => {
-        if (modo === "login") {
+    const submit = async() => {
+        try{
 
-        } else {
-
+            if (modo === "login") {
+                await loginEmail(email, senha)
+            } else {
+               await cadastrarUsuario(email, senha)
+            }
+        }catch(err){
+           exibirErro(err.message)
+            console.log(err);
         }
     }
 
